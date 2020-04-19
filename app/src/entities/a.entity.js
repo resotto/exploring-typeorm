@@ -7,15 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 var typeorm_1 = require("typeorm");
+var b_entity_1 = require("./b.entity");
 var ADbModel = /** @class */ (function () {
     function ADbModel() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn()
+        typeorm_1.PrimaryGeneratedColumn({ name: 'a_id' })
     ], ADbModel.prototype, "id");
     __decorate([
         typeorm_1.Column({ type: 'text' })
     ], ADbModel.prototype, "name");
+    __decorate([
+        typeorm_1.OneToMany(function () { return b_entity_1.BDbModel; }, function (b) { return b.a; })
+    ], ADbModel.prototype, "b");
     ADbModel = __decorate([
         typeorm_1.Entity({ schema: 'public', name: 'a' })
     ], ADbModel);

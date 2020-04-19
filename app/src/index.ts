@@ -5,10 +5,10 @@ createConnection().then(async (conn) => {
   const aDbModel = await conn
     .getRepository(ADbModel)
     .createQueryBuilder('a')
-    .leftJoinAndSelect('b', 'b', 'b.id = a.id')
-    .where('a.id = :id', { id: 1 })
-    // .getSql();
-    .getRawOne();
-  // .getOne();
+    .leftJoinAndSelect('a.b', 'b')
+    .where('a.a_id = :id', { id: 1 })
+    // .printSql();
+    // .getRawOne();
+    .getOne();
   console.debug(aDbModel);
 });

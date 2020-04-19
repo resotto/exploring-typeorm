@@ -45,7 +45,10 @@ typeorm_1.createConnection().then(function (conn) { return __awaiter(void 0, voi
             case 0: return [4 /*yield*/, conn
                     .getRepository(a_entity_1.ADbModel)
                     .createQueryBuilder('a')
-                    .where('a.id = :id', { id: 1 })
+                    // .leftJoinAndSelect('a.b', 'b')
+                    .where('a.a_id = :id', { id: 1 })
+                    // .printSql();
+                    // .getRawOne();
                     .getOne()];
             case 1:
                 aDbModel = _a.sent();

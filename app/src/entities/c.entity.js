@@ -13,7 +13,7 @@ var CDbModel = /** @class */ (function () {
     }
     __decorate([
         typeorm_1.ManyToOne(function () { return a_entity_1.ADbModel; }, { primary: true }),
-        typeorm_1.JoinColumn({ name: 'id' })
+        typeorm_1.JoinColumn({ name: 'a_id' })
     ], CDbModel.prototype, "a");
     __decorate([
         typeorm_1.Column({ type: 'text' })

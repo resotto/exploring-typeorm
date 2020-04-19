@@ -1,10 +1,10 @@
-import { Entity, ManyToOne, JoinColumn, Column } from 'typeorm';
+import { Entity, JoinColumn, Column, OneToOne } from 'typeorm';
 import { ADbModel } from './a.entity';
 
 @Entity({ schema: 'public', name: 'b' })
 export class BDbModel {
-  @ManyToOne(() => ADbModel, { primary: true })
-  @JoinColumn({ name: 'id' })
+  @OneToOne(() => ADbModel, { primary: true })
+  @JoinColumn({ name: 'a_id' })
   a!: ADbModel;
 
   @Column({ type: 'text' })
